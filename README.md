@@ -1,5 +1,7 @@
 # Sarvam Study Notes Reader
 
+This project is hosted in the [`Simple-Notes-Analyzer`](https://github.com/shiveish/Simple-Notes-Analyzer) repository.
+
 A small command-line reader that turns study documents into structured notes using the study method in [`prompts/study_notes.md`](prompts/study_notes.md).
 
 It reads `.txt` and `.md` files directly. For PDFs and page images (`.pdf`, `.png`, `.jpg`, `.jpeg`), it uses Sarvam Document AI to digitise the material as Markdown, then uses Sarvam chat completion to create the notes.
@@ -56,13 +58,8 @@ The web app uses [Streamlit](https://docs.streamlit.io/get-started/installation/
 
 ## Publish and deploy
 
-Create an empty GitHub repository named `sarvam-study-notes-reader`, then from this folder add it as the remote and push the `main` branch:
+The source is available at [github.com/shiveish/Simple-Notes-Analyzer](https://github.com/shiveish/Simple-Notes-Analyzer). To deploy on Streamlit Community Cloud, choose that repository, branch `main`, and entrypoint `app.py`.
 
-```sh
-git remote add origin https://github.com/YOUR_USERNAME/sarvam-study-notes-reader.git
-git push -u origin main
-```
-
-For Streamlit Community Cloud, choose that repository, branch `main`, and entrypoint `app.py`. In the app's secrets settings, add `SARVAM_API_KEY = "your key"`; never commit `.env` or paste the key into GitHub. Streamlit will provide a separate `*.streamlit.app` URL for the running app.
+In the app's secrets settings, add `SARVAM_API_KEY = "your key"`; never commit `.env` or paste the key into GitHub. Streamlit will provide a separate `*.streamlit.app` URL for the running app.
 
 The reader does not use field extraction; it produces explanatory notes rather than a fixed set of document fields.
